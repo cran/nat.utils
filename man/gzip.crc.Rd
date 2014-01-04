@@ -1,0 +1,22 @@
+\name{gzip.crc}
+\alias{gzip.crc}
+\title{Extract the crc (32 bit hash) of a gzip file}
+\usage{
+  gzip.crc(f)
+}
+\arguments{
+  \item{f}{Path to a gzip file}
+}
+\value{
+  hexadecimal formatted
+}
+\description{
+  Assumes that the gzip crc is at the end of the file.
+  Checks for a valid gzip magic number at the start of the
+  file
+}
+\examples{
+rdsfile=system.file('help/aliases.rds')
+gzip.crc(rdsfile)
+}
+

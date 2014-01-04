@@ -1,0 +1,13 @@
+nat.utils 0.3
+=============
+* deprecate file.hardlink in favour of base::file.link
+* prepare CRAN release
+
+nat.utils 0.2
+=============
+* add zipinfo() and zipok() functions (and tests)
+
+nat.utils 0.1
+=============
+* First version on github
+* translates main functions from AnalysisSuite Utils/OSUtils.R
