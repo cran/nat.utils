@@ -1,25 +1,26 @@
 #' Run a command if input files are newer than outputs
-#'
-#' cmd can be an R expression, which is evaluated if necessary,
-#' a string to be passed to \code{\link{system}} or
-#' NULL/NA in which cases the files are checked and TRUE or FALSE is returned
-#' depending on whether action is required.
-#'
-#' When UseLock=TRUE, the lock file created is called outfiles[1].lock
-#'
-#' When ReturnInputTimes=TRUE, the input mtimes are returned as an attribute of
-#' a logical value (if available).
 #' 
+#' @details \code{cmd} can be an R \code{expression}, which is 
+#'   \code{\link{eval}}uated if necessary in the environment calling 
+#'   \code{RunCmdForNewerInput}, a string to be passed to \code{\link{system}} 
+#'   or NULL/NA in which cases the files are checked and \code{TRUE} or 
+#'   \code{FALSE} is returned depending on whether action is required.
+#'   
+#'   When \code{UseLock=TRUE}, the lock file created is called outfiles[1].lock
+#'   
+#'   When \code{ReturnInputTimes=TRUE}, the input mtimes are returned as an 
+#'   attribute of a logical value (if available).
+#'   
 #' @param cmd An \code{\link{expression}}, a string or NA/NULL
-#' @param infiles Character vector of path to one or more input files 
-#' @param outfiles Character vector of path to one or more output files 
+#' @param infiles Character vector of path to one or more input files
+#' @param outfiles Character vector of path to one or more output files
 #' @param Verbose Write information to consolse (Default FALSE)
 #' @param UseLock Stop other processes working on this task (Default FALSE)
 #' @param ReturnInputTimes Return mtimes of input files (default FALSE)
 #' @param ... additional parameters passed to \code{\link{system}} call.
 #' @return logical indicating if cmd was run or for an R expression, eval(cmd)
 #' @export
-#' @seealso \code{\link{makelock}}
+#' @seealso \code{\link{makelock}, \link{eval}, \link{expression}}
 #' @examples \dontrun{
 #' RunCmdForNewerInput(expression(myfunc("somefile")))
 #' }
@@ -61,7 +62,7 @@ RunCmdForNewerInput<-function(cmd,infiles,outfiles,Verbose=FALSE,UseLock=FALSE,
     }
   }
   if(is.expression(cmd)){
-    return(eval(cmd))
+    return(eval(cmd, envir=parent.frame()))
   } else if(is.character(cmd)){
     system(cmd,...)
   }

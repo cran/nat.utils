@@ -1,3 +1,10 @@
+nat.utils 0.4
+=============
+* RunCmdForNewerInput can now evaluate expressions in the context of the caller
+  (so that variables can be used properly)
+* tests: fix a test failure for latest version of testthat
+* dev: add travis continuous integration, update docs with roxygen2 v3.1
+
 nat.utils 0.3
 =============
 * deprecate file.hardlink in favour of base::file.link

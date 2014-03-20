@@ -2,9 +2,8 @@
 \alias{touch}
 \title{Use unix touch utility to change file's timestamp}
 \usage{
-  touch(file, time, reference,
-    timestoupdate = c("access", "modification"),
-    Create = TRUE)
+touch(file, time, reference, timestoupdate = c("access", "modification"),
+  Create = TRUE)
 }
 \arguments{
   \item{file}{Path to file to modify}
@@ -20,14 +19,14 @@
   (default TRUE)}
 }
 \value{
-  TRUE or FALSE according to success
+TRUE or FALSE according to success
 }
 \description{
-  If neither a time or a reference file is provided then
-  the current time is used. If the file does not already
-  exist, it is created unless Create=FALSE.
+If neither a time or a reference file is provided then the
+current time is used. If the file does not already exist,
+it is created unless Create=FALSE.
 }
 \author{
-  jefferis
+jefferis
 }
 

@@ -63,4 +63,25 @@ test_that('RunCmdForNewerInput works',{
   expect_output(expect_true(
     RunCmdForNewerInput(NULL,infiles=c(tf[1],tf[4]),outfile=c(tf[2],tf[3]),Verbose=TRUE),
     'multiple inputs, multiple outputs, one older'),'Overwriting')
+  
+  # Check that we can evaluate an expressions
+  expect_equal(RunCmdForNewerInput(expression(1+2),infiles=tf[4],outfile=tf[1]), 3)
+  
+  rhubarb_a=1
+  rhubarb_b=2
+  expect_equal(RunCmdForNewerInput(expression(rhubarb_a+rhubarb_b),
+                                   infiles=tf[4],outfile=tf[1]),
+               3, 'expression using local variables')
+  expect_equal(RunCmdForNewerInput(expression(sum(rhubarb_a,rhubarb_b)),
+                                   infiles=tf[4],outfile=tf[1]),
+               3, 'expression using local variables as arguments to function')
+  
+  expect_error(RunCmdForNewerInput(expression(sum(crumble_a,crumble_b)),
+                                   infiles=tf[4],outfile=tf[1]),
+               info='expression using non-existent local variables as arguments')
+  
+  add_two<-function(arga, argb) RunCmdForNewerInput(expression(sum(arga, argb)), 
+                                                    infiles=tf[4], outfile=tf[1])
+  expect_equal(add_two(1, 2), 3, info='expression using function arguments')
 })
+

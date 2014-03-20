@@ -2,27 +2,27 @@
 \alias{zipinfo}
 \title{Return information about a zip archive using system unzip command}
 \usage{
-  zipinfo(f)
+zipinfo(f)
 }
 \arguments{
   \item{f}{Path to one (or more) files}
 }
 \value{
-  dataframe of information
+dataframe of information
 }
 \description{
-  Return information about a zip archive using system unzip
-  command
+Return information about a zip archive using system unzip
+command
 }
 \details{
-  Uses system unzip command.
+Uses system unzip command.
 }
 \author{
-  jefferis
+jefferis
 }
 \seealso{
-  \code{\link{zip}}
+\code{\link{zip}}
 
-  Other ziputils: \code{\link{zipok}}
+Other ziputils: \code{\link{zipok}}
 }
 

@@ -41,6 +41,7 @@ test_that('touch works',{
   # Change modification time to that of a reference file, leaving access intact
   expect_true(touch(tf[2],reference = tf[1],timestoupdate = "modification"))
   fis2=file.info(tf[2])
-  expect_equal(fis2$mtime,fis$mtime[1],"Change mtime to that of a refernce file")
-  expect_equal(fis2$atime,fis$atime[2],"Leave atime intact")
+  expect_equal(fis2$mtime,fis$mtime[1],
+               info="Change mtime to that of a reference file")
+  expect_equal(fis2$atime,fis$atime[2],info="Leave atime intact")
 })

@@ -1,4 +1,5 @@
 # nat.utils
+[![Build Status](https://travis-ci.org/jefferis/nat.utils.png)](https://travis-ci.org/jefferis/nat.utils)
 
 An R package containing utility functions to support the NeuroAnatomy Toolbox (nat)
 
@@ -12,11 +13,12 @@ of functions to be converted.
 
 The main original code base is at https://github.com/jefferis/AnalysisSuite. The
 recommended way to access this code is through a wrapper R package
-[nat.as](https://github.com/jefferis/nat.as) available on github. I have also
-started incubating a formal [nat](https://github.com/jefferis/nat) R package on
-github, that will be released on CRAN in future. In the fullness of time I
-expect that this `nat` package will collect together a number of sub-packages or
-extension packages called `nat.*`.
+[nat.as](https://github.com/jefferis/nat.as) available on github. There is now
+also a formal [nat](https://github.com/jefferis/nat) R package undergoing
+rapid development on github (the recommended installation source). A stable 
+release is also available on CRAN. In the fullness of time I expect that this
+`nat` package will collect together a number of sub-packages or extension 
+packages called `nat.*`.
 
 ## Installation
 
