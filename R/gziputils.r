@@ -21,3 +21,25 @@ gzip.crc<-function(f){
   crc=readBin(con,integer(),size=4)
   format(as.hexmode(crc),width=8)
 }
+
+#' Check if a file is a gzip file
+#' 
+#' @param f Path to file to test
+#' @return logical indicating whether \code{f} is in gzip format (or \code{NA}
+#'   if the file cannot be accessed)
+#' @examples
+#' \dontrun{
+#' notgzipfile=tempfile()
+#' writeLines('not a gzip', notgzipfile)
+#' is.gzip(notgzipfile)
+#' con=gzfile(gzipfile<-tempfile(),open='wt')
+#' writeLines('This one is gzipped', con)
+#' is.gzip(gzipfile)
+#' unlink(c(notgzipfile,gzipfile))
+#' }
+is.gzip<-function(f) {
+  if(file.access(f, mode=4)<0) return(NA)
+  x=file(f)
+  on.exit(close(x))
+  isTRUE(summary(x)$class=='gzfile')
+}

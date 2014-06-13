@@ -13,6 +13,10 @@ test_that('RunCmdForNewerInput works',{
     'one older input file')
   
   expect_true(
+    RunCmdForNewerInput(NULL,infiles=tf[1],outfile=tf[3],Force=TRUE),
+    'one older input file, Force=TRUE')
+  
+  expect_true(
     RunCmdForNewerInput(NULL,infiles=tf[4],outfile=tf[1]),
     'one newer input file')
   
@@ -27,7 +31,10 @@ test_that('RunCmdForNewerInput works',{
   expect_false(
     RunCmdForNewerInput(NULL,infiles=tf[5],outfile=tf[2]),
     'single missing input file')
-  
+
+  expect_false(
+    RunCmdForNewerInput(NULL,infiles=tf[5],outfile=tf[2],Force=TRUE),
+    'single missing input file, Force=TRUE')
   expect_false(
     RunCmdForNewerInput(NULL,infiles=character(0),outfile=tf[2]),
     'empty input file vector')

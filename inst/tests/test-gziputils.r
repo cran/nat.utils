@@ -10,3 +10,19 @@ test_that('digest(,algo="crc32") and gzip.crc agree',{
   crc2=digest(file=tf,algo='crc32')
   expect_equal(crc1,crc2)
 })
+
+test_that('is.gzip works',{
+  expect_true(is.gzip(system.file('help/aliases.rds')))
+  
+  notgzipfile=tempfile()
+  expect_true(is.na(is.gzip(notgzipfile)))
+  writeLines('not a gzip', notgzipfile)
+  expect_false(is.gzip(notgzipfile))
+  
+  con=gzfile(gzipfile<-tempfile(),open='wt')
+  writeLines('This one is gzipped', con)
+  close(con)
+  expect_true(is.gzip(gzipfile))
+  
+  unlink(c(notgzipfile,gzipfile))
+})

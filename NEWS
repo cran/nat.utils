@@ -1,3 +1,10 @@
+nat.utils 0.4.1
+===============
+* add is.gzip function
+* RunCmdForNewerInput now has a Force option (FALSE by default) that can be
+  used to override mtime checks and run the command if possible.
+* dev: upgrade to roxygen2 v4
+
 nat.utils 0.4
 =============
 * RunCmdForNewerInput can now evaluate expressions in the context of the caller

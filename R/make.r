@@ -16,6 +16,8 @@
 #' @param outfiles Character vector of path to one or more output files
 #' @param Verbose Write information to consolse (Default FALSE)
 #' @param UseLock Stop other processes working on this task (Default FALSE)
+#' @param Force Ignore file modification times and always produce output
+#'    if input files exist.
 #' @param ReturnInputTimes Return mtimes of input files (default FALSE)
 #' @param ... additional parameters passed to \code{\link{system}} call.
 #' @return logical indicating if cmd was run or for an R expression, eval(cmd)
@@ -25,7 +27,7 @@
 #' RunCmdForNewerInput(expression(myfunc("somefile")))
 #' }
 RunCmdForNewerInput<-function(cmd,infiles,outfiles,Verbose=FALSE,UseLock=FALSE,
-    ReturnInputTimes=FALSE,...){
+    Force=FALSE, ReturnInputTimes=FALSE,...){
   # note that cmd can be an R expression as in 
   # RunCmdForNewerInput(expression(myfunc("somefile")))
   fisi=NULL
@@ -35,6 +37,9 @@ RunCmdForNewerInput<-function(cmd,infiles,outfiles,Verbose=FALSE,UseLock=FALSE,
   } else if(!all(fei<-file.exists(infiles))){
     if(Verbose) cat("some input files missing: ",infiles[!fei],"\n")
     return (FALSE)
+  } else if(Force) {
+    # do nothing just fall through to end
+    if(Verbose) cat("Force=TRUE\n")
   } else if(!all(feo<-file.exists(outfiles))){
     # do nothing just fall through to end
     if(Verbose) cat("outfiles: ",outfiles[!feo],"missing\n")
