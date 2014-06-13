@@ -1,3 +1,8 @@
+nat.utils 0.4.2
+===============
+* bugfix: export is.gzip
+* bugfix: test error
+
 nat.utils 0.4.1
 ===============
 * add is.gzip function

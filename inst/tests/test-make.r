@@ -78,10 +78,10 @@ test_that('RunCmdForNewerInput works',{
   rhubarb_b=2
   expect_equal(RunCmdForNewerInput(expression(rhubarb_a+rhubarb_b),
                                    infiles=tf[4],outfile=tf[1]),
-               3, 'expression using local variables')
+               3, info='expression using local variables')
   expect_equal(RunCmdForNewerInput(expression(sum(rhubarb_a,rhubarb_b)),
                                    infiles=tf[4],outfile=tf[1]),
-               3, 'expression using local variables as arguments to function')
+               3, info='expression using local variables as arguments to function')
   
   expect_error(RunCmdForNewerInput(expression(sum(crumble_a,crumble_b)),
                                    infiles=tf[4],outfile=tf[1]),

@@ -16,7 +16,6 @@ logical indicating whether \code{f} is in gzip format (or \code{NA}
 Check if a file is a gzip file
 }
 \examples{
-\dontrun{
 notgzipfile=tempfile()
 writeLines('not a gzip', notgzipfile)
 is.gzip(notgzipfile)
@@ -24,6 +23,5 @@ con=gzfile(gzipfile<-tempfile(),open='wt')
 writeLines('This one is gzipped', con)
 is.gzip(gzipfile)
 unlink(c(notgzipfile,gzipfile))
-}
 }
 
