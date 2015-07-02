@@ -35,7 +35,8 @@ makelock<-function(lockfile,lockmsg,CreateDirectories=TRUE){
 
 #' Remove lock file
 #' 
-#' \code{removelock} displays a warning if lockfile does not exist
+#' \code{removelock} displays a warning and returns false if lockfile cannot 
+#'  be removed. No error message is given if the file does not exist.
 #' @export
 #' @rdname makelock
 removelock<-function(lockfile){

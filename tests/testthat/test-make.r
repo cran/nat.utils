@@ -9,7 +9,7 @@ test_that('RunCmdForNewerInput works',{
   on.exit(unlink(tf[1:4]))
   
   expect_false(
-    RunCmdForNewerInput(NULL,infiles=tf[1],outfile=tf[3]),
+    RunCmdForNewerInput(NULL,infiles=tf[1],outfile=tf[3], UseLock = T),
     'one older input file')
   
   expect_true(
@@ -92,3 +92,14 @@ test_that('RunCmdForNewerInput works',{
   expect_equal(add_two(1, 2), 3, info='expression using function arguments')
 })
 
+
+context("lock functions")
+test_that('lock functions',{
+  lockfile<-tempfile(fileext = '.lock')
+  on.exit(unlink(lockfile))
+  expect_true(makelock(lockfile))
+  expect_false(makelock(lockfile))
+  expect_true(removelock(lockfile))
+  # still true
+  expect_true(removelock(lockfile))
+})

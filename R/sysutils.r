@@ -3,19 +3,19 @@
 #' @param default Number of cores to assume if detectCores fails
 #' @return Integer number of cores
 #' @author jefferis
-#' @importFrom parallel detectCores
 #' @export
 #' @seealso \code{\link{detectCores}}
+#' @return integer number of cores always >=1 for default values
 #' @examples 
 #' ncpus()
-ncpus<-function(default=1){
+ncpus<-function(default=1L){
   # nb now in base
-  cores=detectCores()
+  cores=parallel::detectCores()
   if(is.na(cores)) {
-    cores=detectCores(TRUE)
+    cores=parallel::detectCores(TRUE)
     if(is.na(cores)){
       warning("I can't identify the number of cpus. Defaulting to",default)
-      return(default)
+      return(as.integer(default))
     }
   }
   cores
