@@ -1,5 +1,10 @@
 nat.utils 0.5
 ===============
+* fixes gzip.crc bug on solaris (#8, thanks to Brian Ripley)
+* dev: simplify gzip.crc test and therefore no longer depend on digest
+
+nat.utils 0.5
+===============
 * new function common_path finds common prefix of multiple paths
 * new function split_path breaks a path into its components, optionally 
   including file separators.

@@ -1,9 +1,9 @@
-dbda24d0e17fe8cda4c70ed485ab34c2 *DESCRIPTION
+a376f40d1e30cb16c283b98fc7246b3f *DESCRIPTION
 bdd7b279f890d42e28ba374d6a4bb373 *NAMESPACE
-a00015b1357e133bd52d83ea070eff51 *NEWS
+fcdf6db53c8be86fccb8a8bc0fabd50a *NEWS
 a50201a2e1d7e6d587890b603849132c *R/filelocks.r
 afec5907a91b76c8cfe28f5879e242b8 *R/fsutils.r
-8af3b3d117d0a43d3a8bc179935afbd6 *R/gziputils.r
+516ec2820f90d7fb9f7e5b98139c814d *R/gziputils.r
 ff63adcb2c499e28fb7b1e299e50f375 *R/make.r
 34b82458bb5d28649360d1c80a128455 *R/nat.utils-package.r
 e85b7d10245f2beb728256c9bb61c132 *R/sysutils.r
@@ -13,7 +13,7 @@ e85b7d10245f2beb728256c9bb61c132 *R/sysutils.r
 677fb8e2b3a90e318726d048e0101073 *man/abs2rel.Rd
 b2f1a8f54f87b02e83a5f2f1e889dadb *man/common_path.Rd
 879b3495d68f37ca9a97a25753598a52 *man/file.swap.Rd
-46a3aa55dcdca039abdc39f893230f77 *man/gzip.crc.Rd
+6dc1f56fb51374e1c80a6520050a4796 *man/gzip.crc.Rd
 f18e9d13e53f1ace76b908c52143f2cf *man/is.gzip.Rd
 96ef32f08c7db0a6da37580c329a4614 *man/makelock.Rd
 3db0fdb24f8cb19cc9a29d903022ade8 *man/nat.utils-defunct.Rd
@@ -25,10 +25,11 @@ ac5f85e32ad3a926545d34488d405476 *man/zipinfo.Rd
 72dd01ed41b335d5562c2044810b9485 *man/zipok.Rd
 9777da02acb1a33c0ba19cdbd088ade6 *tests/testthat.R
 ad2800ccfb69e939560d45f0319edb26 *tests/testthat/test-fsutils.r
-23e67469a1fb578f4bfc2c42b1df3d74 *tests/testthat/test-gziputils.r
+12fbea8af059bcada9e3400dab76e552 *tests/testthat/test-gziputils.r
 8aa11eec2971ce08de83cb7757d5e131 *tests/testthat/test-make.r
 4f61f9b4476ca43fe69793288b98249d *tests/testthat/test-sysutils.R
 7a1ae5ccb8e355a1f0c62c5edee3b38c *tests/testthat/test-ziputils.r
+62b23aaa67ce4ade887e1b71e12bf86b *tests/testthat/testdata/hello.gz
 191d70230ce92dfcde3dc606b59572bc *tests/testthat/testdata/sample-onefile.zip
 133cd1b0ed12c76b641d04e1df6d4c65 *tests/testthat/testdata/sample-spaces.zip
 d8e93512a54e5b63683b6d402b224a70 *tests/testthat/testdata/sample.zip

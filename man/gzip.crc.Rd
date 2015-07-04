@@ -2,7 +2,7 @@
 % Please edit documentation in R/gziputils.r
 \name{gzip.crc}
 \alias{gzip.crc}
-\title{Extract the crc (32 bit hash) of a gzip file}
+\title{Extract the CRC (32 bit hash) of a gzip file}
 \usage{
 gzip.crc(f)
 }
@@ -13,8 +13,14 @@ gzip.crc(f)
 hexadecimal formatted
 }
 \description{
-Assumes that the gzip crc is at the end of the file.
-Checks for a valid gzip magic number at the start of the file
+Reads the crc from a gzip file, assuming it is the last 4 bytes
+  of the file. First checks for a valid gzip magic number at the start of the
+  file.
+}
+\details{
+CRC32 is not a strong hash like SHA1 or even MD5, but it does
+  provide a basic hash of the \bold{uncompressed contents} of the gzip file.
+  NB CRCs are stored in little endian byte order regardless of platform.
 }
 \examples{
 rdsfile=system.file('help/aliases.rds')

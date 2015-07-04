@@ -1,9 +1,13 @@
-#' Extract the crc (32 bit hash) of a gzip file
-#'
-#' Assumes that the gzip crc is at the end of the file.
-#' Checks for a valid gzip magic number at the start of the file
+#' Extract the CRC (32 bit hash) of a gzip file
+#' 
+#' @description  Reads the crc from a gzip file, assuming it is the last 4 bytes
+#'   of the file. First checks for a valid gzip magic number at the start of the
+#'   file.
+#' @details CRC32 is not a strong hash like SHA1 or even MD5, but it does 
+#'   provide a basic hash of the \bold{uncompressed contents} of the gzip file.
+#'   NB CRCs are stored in little endian byte order regardless of platform.
 #' @param f Path to a gzip file
-#' @return hexadecimal formatted 
+#' @return hexadecimal formatted
 #' @export
 #' @examples
 #' rdsfile=system.file('help/aliases.rds')
@@ -17,8 +21,8 @@ gzip.crc<-function(f){
     return(NA)
   }
   seek(con,-8,origin='end')
-  # TODO check endian issues (what happens if CRC was from opposite endian platform?)
-  crc=readBin(con,integer(),size=4)
+  # nb gzip always writes little endian
+  crc=readBin(con,integer(),size=4, endian = 'little')
   format(as.hexmode(crc),width=8)
 }
 
